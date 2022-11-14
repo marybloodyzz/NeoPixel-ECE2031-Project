@@ -1,0 +1,24 @@
+-- Altera Memory Initialization File (MIF)
+
+DEPTH = 2048;
+WIDTH = 16;
+
+ADDRESS_RADIX = HEX;
+DATA_RADIX = HEX;
+
+CONTENT
+  BEGIN
+    [000..7FF] : 0000;  -- Default to NOP
+
+           000 : B800;  --  Loadi 	0
+           001 : 9000;  --  IN     Switches
+           002 : 98B6;  --  OUT    Coord_Converter
+           003 : 90B6;  --  IN     Coord_Converter
+           004 : 9804;  --  OUT    Hex0
+           005 : 90B6;  --  IN		Coord_Converter
+           006 : 98B0;  --  OUT    PXL_A
+           007 : B9F4;  --  Loadi	500
+           008 : 98B1;  --  OUT    PXL_RGB
+           009 : 2800;  --   Jump	Start
+           00A : 0841;  -- DimWhite:  DW  &B0000100001000001
+  END;
